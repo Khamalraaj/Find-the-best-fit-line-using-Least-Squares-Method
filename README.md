@@ -23,10 +23,32 @@ Program to implement univariate Linear Regression to fit a straight line using l
 Developed by: 
 RegisterNumber:  
 */
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.array([1, 2, 3, 4, 5])
+y = np.array([2, 4, 5, 4, 5])
+x_mean = np.mean(x)
+y_mean = np.mean(y)
+numerator = np.sum((x - x_mean) * (y - y_mean))
+denominator = np.sum((x - x_mean)**2)
+m = numerator / denominator
+c = y_mean - m * x_mean
+y_pred = m * x + c
+plt.scatter(x, y, color='blue', label='Actual')
+plt.plot(x, y_pred, color='red', label='Best Fit Line')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend()
+plt.title('Univariate Linear Regression')
+plt.show()
+print(f"Slope (m): {m}")
+print(f"Intercept (c): {c}")
 ```
 
 ## Output:
-![best fit line](sam.png)
+<img width="836" height="707" alt="image" src="https://github.com/user-attachments/assets/5b7a01ff-1030-46f6-a7f4-d5b2f3e2f351" />
+
 
 
 ## Result:
